@@ -93,6 +93,7 @@
           .item-information{
             height: 1362px;
             padding: 24px 40px 40px;
+            box-sizing: border-box;
 
             h {
               width: 100%;
@@ -210,6 +211,34 @@
                 }            
               }
             }
+            &__option-area{
+              height: 48px;
+              line-height: 48px;
+
+              display:flex;
+              justify-content: space-between;
+              &__like-btn{
+                height: 24px;
+                padding: 6px 10px;
+                font-size: inherit;
+                line-height: 24px;
+                border-radius: 40px;
+                color: #3CCACE;
+                border: 1px solid #ffb340;
+                margin-top: 10px;
+                &__box{ 
+
+                  i{
+                    display: inline-block;
+                  } 
+                  span{
+                    display: inline-block;
+                  }
+                }
+              }
+            }
+
+            
           }
           .comment-box{
             height: 305px;
