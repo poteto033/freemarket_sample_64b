@@ -260,8 +260,49 @@
           }
           .comment-box{
             height: 305px;
-            background-color: cornsilk;
+            background-color: white;
+            margin-top: 10px;
+            padding: 24px;
+            text-align: center;
+            box-sizing: border-box;
 
+            form {
+              height: 257px;
+              margin: 0 auto;
+              position: relative;
+
+              input {
+                width: 100%;
+                min-height: 104px;
+                padding: 10px;
+                box-sizing: border-box;
+
+
+              }
+              p{
+                padding: 8px;
+                font-size: 14px;
+                background-color: #f8f8f8;
+                margin: 10px 0;
+                text-align: left;
+              }
+              submit {
+                line-height: 48px;
+                background: #3CCACE;
+                border: 1px solid #3CCACE;
+                color: #fff;
+                width: 60%;
+                font-size: 18px;
+                border-radius: 100px;
+                display: block;
+                margin: 0 auto;
+                position: absolute;
+                right: 0;
+                left: 0;
+                bottom: 0;
+              }
+
+            }
           }
 
         }
