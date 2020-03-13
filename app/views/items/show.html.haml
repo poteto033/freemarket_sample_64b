@@ -102,8 +102,13 @@
                 コメントする
 
         .links
-          = link_to "前の商品","#"
-          = link_to "後ろの商品","#"
+          = link_to "#" do
+            %i.fa.fa-angle-left
+            前の商品
+          = link_to "#" do
+            後ろの商品
+            %i.fa.fa-angle-right
+
         = link_to "レディースをもっと見る","#",class: "relatedItems"
 
 
