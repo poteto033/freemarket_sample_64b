@@ -85,15 +85,14 @@
       padding:40px;
       margin:0 auto;
       .content-all{
+        background-color: white;
         height: 1768px;
         width: 700px;
-        background-color: cadetblue;
         margin:0 auto;
         .main-content{
           .item-information{
             height: 1362px;
             padding: 24px 40px 40px;
-            background-color: chartreuse;
 
             h {
               width: 100%;
@@ -178,6 +177,38 @@
             &__text{
               font-size: 18px;
               margin-bottom: 30px;
+            }
+            &__table{
+              margin-bottom: 20px;
+              table{
+                width: 100%;
+                border-collapse: collapse;
+                tbody{
+                  border-color: inherit;
+                  tr{
+                    th{
+                      width: 20%;
+                      background-color: #eee;
+                      font-weight: 400;
+                      padding: 8px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      text-align: center;
+                    }
+                    td{
+                      width: 61%;
+                      padding: 15px;
+                      border: 1px solid #dedede;
+                      font-size: 14px;
+                      a{
+                        color: #3CCACE;
+                        text-decoration: none;
+                        display: block;
+                      }
+                    }
+                  }
+                }            
+              }
             }
           }
           .comment-box{
