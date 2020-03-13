@@ -152,6 +152,25 @@
 
 
             }
+            &__price{
+              height: 53px;
+              margin: 24px 0 24px;
+              text-align: center;
+              span{
+                margin-right: 10px;
+                font-size: 46px;
+                font-weight: bold;
+                letter-spacing: -0.05em;
+
+              }
+              &__detail{
+                span {
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: normal;
+                }
+              }
+            }
 
 
           }
