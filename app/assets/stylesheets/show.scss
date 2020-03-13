@@ -309,9 +309,14 @@
 
         .links{
           display:flex;
-          display:block;
-        }
+          justify-content: space-between;
 
+          a {
+          display:block;
+          color:#3CCACE;
+          text-decoration: none;
+
+          }
         }
         .relatedItems{
           display:block;
