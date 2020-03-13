@@ -102,6 +102,56 @@
               font-weight: bold;
               font-size: 24px;
             }
+            .item-infomation__images {
+              margin-top: 16px;
+              ul {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                display: block;
+                display: flex;
+                list-style: none;
+
+                li{
+                  width: 560px;
+                  margin: 0 30px;
+                  flex-direction: column;
+
+                  img {
+                    height: 346px;
+                    width: 100%;
+                    object-fit: cover;
+                  }
+
+                  ul{
+                    height: 87px;
+                    display: block;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 4px;
+                    list-style: none;
+
+                    li{
+                      width: 25%;
+                      margin: 0 10px 0 0;
+
+                      img {
+                        height: 87px;
+                        object-fit: cover;
+
+                      }
+                    }
+                  }
+                }
+
+
+              }
+
+
+
+
+
+            }
 
 
           }
