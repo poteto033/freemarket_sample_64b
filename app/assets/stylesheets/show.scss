@@ -318,11 +318,14 @@
 
           }
         }
-        .relatedItems{
+        .see-more-items{
           display:block;
           height: 33px;
           margin: 24px 0 8px;
-          background-color: darkgrey;
+          color: #3CCACE;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 22px;
         }
 
       }
