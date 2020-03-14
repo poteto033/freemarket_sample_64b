@@ -10,7 +10,6 @@
   .nav{
     box-sizing: border-box;
 
-    height:55px;
     padding: 0 60px;
     border-top: 1px solid #eee;
     box-shadow:0 3px 3px 0 rgba(0,0,0,0.16);
@@ -18,60 +17,34 @@
 
     ul{
       box-sizing: border-box;
-      height:54px;
-      display:block;
-
       width: 100%;
       max-width:1040px ;
       padding: 17px 0 16px;
       margin: 0 auto;
       font-size: 14px;
-      display:flex;
       list-style: none;
-
-
-
-
-
       li {
-        color:black;
         line-height: 21px;
         display:inline-block;
-
-
         &:after {
           font-family: "Font Awesome 5 Free";
           font-weight: 900; 
-          content: '\00a0\00a0\f105\00a0\00a0';
+          content: '\00a0\f105\00a0';
         }
-        
-        
         a {
           list-style: none;
           color:black;
           text-decoration: none;
-
-
           &:hover{
             color: #3CCACE;
           }
         }
-
-
         &:last-child{
           font-weight: bold;
         }
-
         &:last-child::after {
-          &:last-child::after {
-
-            content:"";
-            }
               content:"";
           }
-  
-
-        
       }
     }
   }
@@ -85,12 +58,13 @@
       padding:40px;
       margin:0 auto;
       .content-all{
-        background-color: white;
         height: 1768px;
         width: 700px;
         margin:0 auto;
         .main-content{
           .item-information{
+            background-color: white;
+
             height: 1362px;
             padding: 24px 40px 40px;
             box-sizing: border-box;
@@ -143,14 +117,7 @@
                     }
                   }
                 }
-
-
               }
-
-
-
-
-
             }
             &__price{
               height: 77px;
@@ -253,7 +220,6 @@
                     color: #333;
                     text-decoration: none;
                   }
-
                 }
               }
             }
@@ -335,12 +301,10 @@
 
   .body-template{
     height: 359.33px;
-    background-color: coral;
   }
 
   
   .footer{
     height: 354.34px;
-    background-color: black;
   }
 }
