@@ -19,7 +19,8 @@ html,body {
   box-sizing:border-box
 }
 
-  .show-main{
+  .show-screen{
+    position: fixed;
     box-sizing: border-box;
     height: 1856px;
     padding:40px;
