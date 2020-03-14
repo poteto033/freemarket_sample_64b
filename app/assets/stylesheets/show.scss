@@ -1,3 +1,15 @@
+@mixin size($height, $width, $padding) {
+  height: $height;
+  width: $width;
+  padding: $padding;
+}
+@mixin color($backgroundcolor, $color) {
+  background-color: $backgroundcolor;
+  color: $color;
+}
+
+
+
 .show-screen{
   box-sizing: border-box;
   height:100vh;
@@ -307,4 +319,24 @@
   .footer{
     height: 354.34px;
   }
+  .camera__button {
+    @include size(120px, 120px, 15px);
+    @include color(#3CCACE,0);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    p {
+      @include color(0,white);
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    img {
+      @include size(60px, 60px, 0);
+      margin: auto;
+    }
+  }
+
 }
