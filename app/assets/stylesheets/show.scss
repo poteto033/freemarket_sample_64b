@@ -10,7 +10,7 @@
 
 
 
-html,body {
+.html,body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -18,13 +18,131 @@ html,body {
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   box-sizing:border-box
 }
+.show-screen{
+  position: fixed;
+  box-sizing: border-box;
+  height: 100%;
+  padding:40px;
+  margin:0 auto;
 
-  .show-screen{
-    position: fixed;
+  .header {
+    @include size(100px, 100%, 0);
+    &__form {
+      @include size(100%, 100%, 0 50px);
+      max-width: 1120px;
+      margin: auto;
+      &__box {
+        @include size(60px, 100%, 0);
+        margin: auto;
+        margin-top: 10px;
+        display: flex;
+        a {
+          list-style: none;
+          margin-right: 10px;
+          float: left;
+        }
+        &--logo {
+          @include size(50px, 140px, 0);
+          object-fit: contain; 
+        }
+        &__input {
+          @include size(35px, 100%, 0);
+          margin:10px 0 0 20px;
+          float: right;
+          &--text {
+            @include size(100%, 100%, 5px);
+            float: left;
+          }
+        } 
+        &--btn {
+          @include size(35px, 50px, 0);
+          @include color(#3CCACE, 0);
+          margin-top: 10px;
+          float: right;
+          i {
+            @include color(0, white);
+            font-size: 1.2rem;
+            font-family: "Font Awesome 5 Free";
+          }
+        }
+      }
+      &__links {
+        &__link1 {
+          float: left;
+          list-style: none;
+          &--category {
+            text-decoration: none;
+            margin-right: 20px;
+          }
+          &--brand {
+            text-decoration: none;
+          }
+        }
+        &__link2 {
+          float: right;
+          list-style: none;
+          &--login {
+            text-decoration: none;
+            margin-right: 20px;
+          }
+          &--signin {
+            text-decoration: none;
+          }
+        }
+        a {
+          @include color(0, #3f3f3f);
+          font-size: 0.9rem;
+        }
+        a:hover {
+          color: #ffa500;
+        }
+      }
+    }  
+  }
+ 
+
+  .nav{
     box-sizing: border-box;
-    height: 1856px;
-    padding:40px;
-    margin:0 auto;
+
+    padding: 0 60px;
+    border-top: 1px solid #eee;
+    box-shadow:0 3px 3px 0 rgba(0,0,0,0.16);
+    position: relative;
+
+    ul{
+      box-sizing: border-box;
+      width: 100%;
+      max-width:1040px ;
+      padding: 17px 0 16px;
+      margin: 0 auto;
+      font-size: 14px;
+      list-style: none;
+      li {
+        line-height: 21px;
+        display:inline-block;
+        &:after {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900; 
+          content: '\00a0\f105\00a0';
+        }
+        a {
+          list-style: none;
+          color:black;
+          text-decoration: none;
+          &:hover{
+            color: #3CCACE;
+          }
+        }
+        &:last-child{
+          font-weight: bold;
+        }
+        &:last-child::after {
+              content:"";
+          }
+      }
+    }
+  }
+  .show-main{
     .content-all{
       height: 1768px;
       width: 700px;
@@ -264,4 +382,112 @@ html,body {
     }
 
   }
+  .footer {
+    &__image5 {
+      @include size(350px, 100%, 100px 70px);
+      background-image: url(bg-appBanner-pict.jpg);
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      position: relative;
+        margin: auto;
+      &--text1  {
+        @include size(20%, 100%,0);
+        @include color(0,white);
+        text-shadow:0px 0px 10px rgba(8, 8, 8, 0.5);
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      &--text2 {
+        @include size(20%, 100%,0);
+        @include color(0,white);
+        text-shadow:0px 0px 10px rgba(8, 8, 8, 0.5);
+        font-size: 2.2rem;
+      }
+      &--badge {
+        @include size(100px, auto, 0);
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        img:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    &__contents {
+      @include size(350px, 100%, 60px 5% 0 5%);
+      @include color(#272727,0);
+      margin: auto;
+      position: relative;
+      &__menu { 
+        @include size(100%, 100%, 0);
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        &__company {
+          @include size(80%, 20%, 0);  
+        }
+        &__search {
+          @include size(60%, 20%, 0);
+        }
+        &__help {
+          @include size(80%, 20%, 0);
+        }
+        .list {
+          @include size(20%, 200px, 0);
+          @include color(0,white);
+          text-decoration: none;
+          font-size: 0.8rem;
+        }
+        h2 {
+          @include color(0,white);
+          text-align: center;
+          font-size: 1rem;
+          font-weight: bold;
+          margin-bottom: 30px;
+        }
+        p {
+          margin-bottom: 15px;
+          text-align: center;
+        } 
+      }
+      &__logo {
+        @include size(45px, 100%, 0);
+        max-width: 160px;
+        position: absolute;
+        left: 44%;
+        bottom: 20%;
+        img {
+          @include size(100%, 100%, 0);
+          object-fit: contain; 
+        }
+        p {
+          @include color(0,white);
+          font-size: 0.9rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .camera__button {
+    @include size(120px, 120px, 15px);
+    @include color(#3CCACE,0);
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    p {
+      @include color(0,white);
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    img {
+      @include size(60px, 60px, 0);
+      margin: auto;
+    }
+  }
 
+}
