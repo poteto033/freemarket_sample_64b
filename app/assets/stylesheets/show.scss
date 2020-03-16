@@ -75,6 +75,20 @@
             }
           }         
         }
+        &__buy-or-edit{
+          display: block;
+          background-color: red;
+          text-align: center;
+          text-decoration: none;
+          margin-bottom: 32px;
+
+          span{
+            line-height: 60px;
+            font-size: 24px;
+            font-weight: 600;
+            color:white;
+          }
+        }
         &__text{
           font-size: 18px;
           margin-bottom: 30px; 
