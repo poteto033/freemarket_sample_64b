@@ -32,7 +32,8 @@
             %tbody
               %tr
                 %th 出品者
-                %td hoge
+                %td 
+                  =@item.user.nickname
               %tr
                 %th カテゴリー
                 %td
@@ -47,17 +48,20 @@
                 %td
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td 
+                  =@item.item_status
               %tr
                 %th 発送元の地域
                 %td
-                  =link_to "青森県","#"
+                  =link_to "#{@item.delivery_area}","#"
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  =@item.delivery_charge
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td
+                  =@item.delivery_days
         .item-information__option-area
           .item-information__option-area__like
             .item-information__option-area__like__btn

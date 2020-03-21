@@ -5,5 +5,6 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item=Item.find(1).includes(:user)
   end
 end

@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 20200319101730) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["solder_id"], name: "index_items_on_solder_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

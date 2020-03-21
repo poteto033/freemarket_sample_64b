@@ -9,9 +9,10 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.string :delivery_area,    null: false
       t.string :delivery_days,    null: false
       t.references :category,     null: false
+      t.references :image
       t.references :brand    
-      t.integer :solder_id
-      t.integer :buyer_id
+      t.references :solder
+      t.references :buyer
       t.timestamps
     end
   end
