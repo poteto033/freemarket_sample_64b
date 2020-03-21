@@ -66,3 +66,4 @@ gem 'haml-rails'
 # deviseの導入
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'ancestry'
