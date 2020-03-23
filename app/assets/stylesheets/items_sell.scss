@@ -1,0 +1,98 @@
+.wapper {
+  background-color: gray;
+}
+.header_item{
+  height: 100px;
+  width: auto;
+  background-color: gray;
+  text-align:center;
+
+}
+.hurima_logo{
+  background:url(material/logo/logo-white.png);
+  background-position: center;
+  background-size: 25%;
+  background-repeat: no-repeat;
+  height: 100%
+  
+  
+}
+.body_item{
+  height: 100%;
+  width: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 40px;
+  background-color: white;
+  border-radius: 3px;
+  span{
+    background-color: red;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+  }
+  .item_brand span{
+    background-color: green;
+  }
+input{
+  width: 100%; /*親要素いっぱい広げる*/
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  }
+.item_description textarea,.input_item_image{
+  height: 200px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box;
+}
+}
+.p{
+  @include paragraph;
+  display: inline-block;
+}
+.item_image,.item_name,.item_category,.item_delivery{
+  @include default;
+}
+.item_price_detail{
+  height: 200px;
+}
+.footer_item{
+  height: 80px;
+  
+}
+.item_sell_btn{
+  text-align: center;
+  height: 150px;
+  a{
+    display: block;
+    width: 200px;
+    font-size: 30px;
+    margin:0 auto;
+    margin-top: 15px;
+    border:1px solid #333;
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+}
+img-new{
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  height: 200px;
+  }
+.item_price{
+  padding-top: 50px;
+}
