@@ -1,78 +1,85 @@
 .wapper  
   .header_item
     .hurima_logo
-  .body_item
-    .input_list
-      .item_image
-        %p1 出品画像
-        %span 必須
-        .item_image_paragraph
-          %input(type="file" name="item_image" accept="image/*")
-
-        .input_item_image-new
-      .item_name
-        .item_name_paragraph
-          %p3 商品名
+  =form_for @item do|f|
+    .body_item
+      .input_list
+        .item_image
+          %p1 出品画像
           %span 必須
-          .item_input_form_name
-            %input(type="text" maxlength='40' placeholder="４０字まで")
-        .item_description
-          .item_name_description
-            %p4 商品の説明
+          .item_image_paragraph
+            %input(type="file" name="item_image" accept="image/*")
+
+          .input_item_image
+        .item_name
+          .item_name_paragraph
+            %p3 商品名
             %span 必須
+            .item_input_form_name
+              %input(type="text" maxlength='40' placeholder="４０字まで")
           .item_description
-            %textarea(maxlength='1000' placeholder="商品の説明（必須 1,000文字以内（色、重さ、定価、注意点など")
-      .item_category
-        %p4カテゴリー
-        %span 必須 
-        .item_category_form
-          %input(type="text")
+            .item_name_description
+              %p4 商品の説明
+              %span 必須
+            .item_description
+              %textarea(maxlength='1000' placeholder="商品の説明（必須 1,000文字以内（色、重さ、定価、注意点など")
+
+
+
+
+
+        .item_category
+          .item_category-box
+            = f.label 'カテゴリー', class: ''
+            %span.listing-default--require 必須
+            .listing-select-wrapper
+              .listing-select-wrapper__box
+                = f.collection_select :category, @category, :id, :name,{class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+
           
-        .item_brand
-          %p5 ブランド
-          %span 任意
-          .item_brand_form
-          %input(type="text" placeholder="例  GUCCI")
-        .item_status
-          %p6 商品の状態
-          %span 必須
-          .item_status_form
-          %input(type="text")
-      .item_delivery
-        %p7 配送について
-        .item_delivery_burden
-          %p8 配送料の負担
-          %span 必須
-        .item_delevery_burden_input
-          %input(type="text")
-        .item_delivery_area
-          %p9 発送元の地域
-          %span 必須
-        .item_delevery_area_input
-          %input(type="text")
-        .item_delevery_day
-          %p10 発送までの日数
-          %span 必須
-        .item_delevery_day_input
-          %input(type="text")
-      .item_price_detail
-        価格（¥300〜9,999,999）
-        %p11 販売手数料
-        .item_price
-          %input(type="nunber")
-        /販売手数料 rubyを使って計算
-      .item_sell_btn
-        =link_to "出品する","#"
-        =link_to "戻る","#"
-
-  .footer_item
-
-
-    
 
 
 
-    
 
 
 
+            
+          .item_brand
+            %p5 ブランド
+            %span 任意
+            .item_brand_form
+            %input(type="text" placeholder="例  GUCCI")
+          .item_status
+            %p6 商品の状態
+            %span 必須
+            .item_status_form
+            %input(type="text")
+        .item_delivery
+          %p7 配送について
+          .item_delivery_burden
+            %p8 配送料の負担
+            %span 必須
+          .item_delevery_burden_input
+            %input(type="text")
+          .item_delivery_area
+            %p9 発送元の地域
+            %span 必須
+          .item_delevery_area_input
+            %input(type="text")
+          .item_delevery_day
+            %p10 発送までの日数
+            %span 必須
+          .item_delevery_day_input
+            %input(type="text")
+        .item_price_detail
+          価格（¥300〜9,999,999）
+          %p11 販売手数料
+          .item_price
+            %input(type="nunber")
+          /販売手数料 rubyを使って計算
+        .item_sell_btn
+          =link_to "出品する","#"
+          =link_to "戻る","#"
+
+    .footer_item
