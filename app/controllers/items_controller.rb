@@ -6,7 +6,14 @@ class ItemsController < ApplicationController
 
   def new
    @items = Item.new
-   @category = Category.all.where(ancestry: nil)
+   @category_parent = ["---"]
+   @category_parent= Category.all.where(ancestry: nil).each do |parent|
+    @category_parent<<parent.name
+   end
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}",ancestry: nil).children
   end
 
   def create
