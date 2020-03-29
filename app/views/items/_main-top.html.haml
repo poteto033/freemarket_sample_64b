@@ -79,106 +79,51 @@
     %p
       新規投稿商品
   %ul.items__list1
-    %a{href: "#", class: "items__list1__category"}
-      =image_tag("image1.png", class: "items__list1__category--item1")
-      .items__list1__category--data1
-        .items__list1__category--data1__name
-          %p 
-            items1
-        .items__list1__category--data1__content
-          %li.items__list1__category--data1__content--price
-            3000円
-          %li.items__list1__category--data1__content--star
-            %i.fas.fa-star
-            %p.items__list1__category--data1__content--count
-              0
-        .items__list1__category--data1__tax
-          %p
-            (税込)
-    %a{href: "#", class: "items__list1__category"}
-      =image_tag("image2.png", class: "items__list1__category--item1")
-      .items__list1__category--data1
-        .items__list1__category--data1__name
-          %p 
-            items1
-        .items__list1__category--data1__content
-          %li.items__list1__category--data1__content--price
-            3000円
-          %li.items__list1__category--data1__content--star
-            %i.fas.fa-star
-            %p.items__list1__category--data1__content--count
-              0
-        .items__list1__category--data1__tax
-          %p
-            (税込)
-    %a{href: "#", class: "items__list1__category"}
-      =image_tag("image3.png", class: "items__list1__category--item1")
-      .items__list1__category--data1
-        .items__list1__category--data1__name
-          %p 
-            items1
-        .items__list1__category--data1__content
-          %li.items__list1__category--data1__content--price
-            3000円
-          %li.items__list1__category--data1__content--star
-            %i.fas.fa-star
-            %p.items__list1__category--data1__content--count
-              0
-        .items__list1__category--data1__tax
-          %p
-            (税込)
+    - if @items.present?
+      -@items.each do |item| 
+        = link_to item_path(item.id), class: "items__list1__category" do
+          .items__list1__category__images 
+            -item.images.each do |image|
+              =image_tag item.images, alt: "" 
+          .items__list1__category--data1
+            .items__list1__category--data1__name
+              %p 
+                =item.name
+            .items__list1__category--data1__content
+              %li.items__list1__category--data1__content--price
+                =item.price 
+                円
+              %li.items__list1__category--data1__content--star
+                %i.fas.fa-star
+                %p.items__list1__category--data1__content--count
+                  0
+            .items__list1__category--data1__tax
+              %p
+                (税込)
   .items__title2
     %h2
       ピックアップブランド
     %p
       アーカイバ
   %ul.items__list2
-    %a{href: "#", class: "items__list2__brand"}
-      =image_tag("image2.png", class: "items__list2__brand--item1")
-      .items__list2__brand--data2
-        .items__list2__brand--data2__name
-          %p 
-            items1
-        .items__list2__brand--data2__content
-          %li.items__list2__brand--data2__content--price
-            3000円
-          %li.items__list2__brand--data2__content--star
-            %i.fas.fa-star
-            %p.items__list2__brand--data2__content--count
-              0
-        .items__list2__brand--data1__tax
-          %p
-            (税込)
-    %a{href: "#", class: "items__list2__brand"}
-      =image_tag("image3.png", class: "items__list2__brand--item1")
-      .items__list2__brand--data2
-        .items__list2__brand--data2__name
-          %p 
-            items1
-        .items__list2__brand--data2__content
-          %li.items__list2__brand--data2__content--price
-            3000円
-          %li.items__list2__brand--data2__content--star
-            %i.fas.fa-star
-            %p.items__list2__brand--data2__content--count
-              0
-        .items__list2__brand--data1__tax
-          %p
-            (税込)
-    %a{href: "#", class: "items__list2__brand"}
-      =image_tag("image1.png", class: "items__list2__brand--item1")
-      .items__list2__brand--data2
-        .items__list2__brand--data2__name
-          %p 
-            items1
-        .items__list2__brand--data2__content
-          %li.items__list2__brand--data2__content--price
-            3000円
-          %li.items__list2__brand--data2__content--star
-            %i.fas.fa-star
-            %p.items__list2__brand--data2__content--count
-              0
-        .items__list2__brand--data2__tax
-          %p
-            (税込)
+    -@items.each do |item| 
+      = link_to item_path(item.id), class: "items__list1__category" do
+        .items__list1__category__images 
+          -item.images.each do |image|
+            =image_tag item.images, alt: ""
+        .items__list2__brand--data2
+          .items__list2__brand--data2__name
+            %p 
+              =item.name
+          .items__list2__brand--data2__content
+            %li.items__list2__brand--data2__content--price
+              3000
+            %li.items__list2__brand--data2__content--star
+              %i.fas.fa-star
+              %p.items__list2__brand--data2__content--count
+                0
+          .items__list2__brand--data1__tax
+            %p
+              (税込)
+      
         

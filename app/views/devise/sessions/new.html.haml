@@ -14,21 +14,17 @@
         .btn.google
           = icon("fab", "google",class: "google_logo")
           =link_to "Googleでログイン","https://www.google.com/",class: "btn google__link"
-      .account_info
-        %input(type="e-mail" name="e-mail" class="input_box" value="" placeholder="メールアドレス")/
-        -# サーバーサイド作業にてformメソッドを実装予定
-      .account_info
-        %input(type="password" name="password" class="input_box" value="" placeholder="パスワード")/
-      .not_robot
-        .alert
-          確認は時間切れとなりました。チェックボックスをもう一度オンにしてください。
-        .cycle_logo
-          %i.fas.fa-recycle
-          -# ちょうどよいアイコンが見つからなかったので仮設定
-        %input(type="checkbox" name="" class="robot_checkbox" value="1")/
-        .iamnotrobot 私はロボットではありません
-        .praivacy_policy プライバシー・利用規約
-      .btn.red
-        =link_to "ログイン","#",class: "btn red__link"
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        - if resource.errors[:password].present?
+          %p.red メールアドレスまたはパスワードが違います
+        .account_info
+          = f.text_field :email, class: 'input_box', placeholder: 'メールアドレス', autofocus: true
+        .account_info
+          = f.password_field :password, class: 'input_box', placeholder: 'パスワード', autofocus: true
+        .not_robot
+          = recaptcha_tags
+          - if resource.errors.messages[:base].present?
+            %p.red= message
+        = f.submit 'ログイン', class: 'btn red', id: "sessions_btn"
       = link_to "パスワードをお忘れの方","#", class: "p"
   = render "devise/shared/footer"

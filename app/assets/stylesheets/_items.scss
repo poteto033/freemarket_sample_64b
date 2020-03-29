@@ -327,20 +327,14 @@ html,body {
         @include size(auto,30%,0);
         @include color(white,0);
         text-decoration: none;
-        &--item1 {
+        &__images {
           @include size(70%, 100%, 0);
-          object-fit: contain;
-          object-position: center;
-        }
-        &--item2 {
-          @include size(70%, 100%, 0);
-          object-fit: contain;
-          object-position: center;
-        }
-        &--item3 {
-          @include size(70%, 100%, 0);
-          object-fit: contain;
-          object-position: center;
+          img {
+            background-size: cover;
+            object-fit: contain;
+            object-position: center;
+          }
+          
         }
         &--data1 {
           @include size(30%,100%,0 15px 0 15px);

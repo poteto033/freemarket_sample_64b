@@ -1,4 +1,3 @@
-
 ##  itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -63,7 +62,6 @@
 |card_id|string|null:false|
 ### Association
 - belongs_to :user
-
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
