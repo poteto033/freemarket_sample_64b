@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   end
 
   def new
+   @items = Item.new
+   @category = Category.all.where(ancestry: nil)
   end
 
   def create
