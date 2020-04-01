@@ -72,7 +72,7 @@
             %p 発送元の地域
             %span 必須
           .item_delevery_area_input
-            = f.select :delivery_area, Item.delivery_areas,{include_blank: "選択してください"}, class: "input-select"
+            = f.collection_select :delivery_area, @prefectures,:id,:name,{include_blank: "選択してください"}, class: "input-select"
         .item_delevery_day
           .text
             %p 発送までの日数

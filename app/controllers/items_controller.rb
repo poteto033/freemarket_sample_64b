@@ -10,6 +10,9 @@ class ItemsController < ApplicationController
    @category_parent=Category.all.where(ancestry: nil).each do |parent|
     @category_parent<<parent.name
    end
+   @prefectures = Prefecture.all
+
+
   end
 
   def category_children
