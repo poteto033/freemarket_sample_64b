@@ -7,7 +7,7 @@ $(function(){
   //子要素のHTML
   function createChildrenBox(addHTML){
     var childHTML ='';
-     childHTML= `<div class=item-category-form >
+     childHTML= `<div class=item-category-form id="children-form-box">
                   <select class="input-select" id="children-form" name="#[category]">
                     <option value="---" data-category="---">選択してください</option>
                       ${addHTML}
@@ -19,8 +19,8 @@ $(function(){
   //孫要素のHTML
   function createGrandchildrenBox(addHTML){
     var grandchildrenHTML =''
-    grandchildrenHTML= `<div class=item-category-form >
-                          <select class="input-select" id='grandchildren-form' name='category'>
+    grandchildrenHTML= `<div class=item-category-form id="grandchildren-form-box" >
+                          <select class="input-select" id="grandchildren-form" name='category'>
                             <option value="---" data-category="---">選択してください</option>
                               ${addHTML}
                           </div>
@@ -32,7 +32,7 @@ $(function(){
     //親カテゴリーを選択したら発火
     $('#parent-form').on('change',function(){
       var parentCategory = document.getElementById('parent-form').value;
-      if (parentCategory !="---"){
+      if (parentCategory !=""){
         $.ajax({
           url: 'category_children',
           type: 'GET',
@@ -41,6 +41,8 @@ $(function(){
         })
         .done(function(children){
           $('#children-form').remove();
+          $('#grandchildren-form').remove();
+
           var addHTML ='';
           children.forEach(function(child){
             addHTML += appendOption(child);
@@ -52,8 +54,7 @@ $(function(){
         })
       }else{
         $('#children-form').remove();
-
-
+        $('#grandchildren-form').remove();
       }
     })
     //子カテゴリーを選択したら発火
