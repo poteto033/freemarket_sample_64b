@@ -8,7 +8,7 @@ $(function(){
   function createChildrenBox(addHTML){
     var childHTML ='';
      childHTML= `<div class=item-category-form id="children-form-box">
-                  <select class="input-select" id="children-form" name="#[category]">
+                  <select class="input-select" id="children-form" name="category_id">
                     <option value="---" data-category="---">選択してください</option>
                       ${addHTML}
                   </div>
@@ -20,7 +20,7 @@ $(function(){
   function createGrandchildrenBox(addHTML){
     var grandchildrenHTML =''
     grandchildrenHTML= `<div class=item-category-form id="grandchildren-form-box" >
-                          <select class="input-select" id="grandchildren-form" name='category'>
+                          <select class="input-select" id="grandchildren-form" name='category_id'>
                             <option value="---" data-category="---">選択してください</option>
                               ${addHTML}
                           </div>

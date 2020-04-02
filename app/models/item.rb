@@ -10,6 +10,9 @@ class Item < ApplicationRecord
   validates :name, :text, :item_status, :price, :delivery_charge, :delivery_area, :delivery_days, :category, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :Prefecture
+  belongs_to_active_hash :Prefecture 
+  belongs_to_active_hash :Deliverydays
+  belongs_to_active_hash :Deliverychage
+  belongs_to_active_hash :Itemstatus
   
 end
