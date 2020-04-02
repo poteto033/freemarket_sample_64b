@@ -28,25 +28,12 @@
           %p 商品の説明
           %span 必須
         =f.text_area :text, maxlength:'1000', placeholder: "商品の説明（必須 1,000文字以内（色、重さ、定価、注意点など)", class: "item-text_field"
-
-
-
-
-
       .item_category
         .text
           %p カテゴリー
           %span 必須 
         .item_category_form
-          = f.collection_select :category, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
-
-
-
-
-
-
-
-
+          = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
       .item_brand
         .text
           %p ブランド
