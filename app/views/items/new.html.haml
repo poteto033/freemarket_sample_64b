@@ -9,14 +9,14 @@
           %span 必須
         .item_image_paragraph
           =f.fields_for :images do |i|
-            = i.label :url, class: "image-file" do
+            = i.label :image, class: "image-file" do
               .file-btn
                 =icon("fas", "camera",class: "icon")
                 %p 
                   ドラッグアンドドロップ
                   %br
                     またはクリックしてファイルをダウンロード
-                =i.file_field :url, class: 'file'
+                =i.file_field :image, class: 'file'
       .item_name
         .text
           %p 商品名
@@ -39,7 +39,7 @@
           %p ブランド
           %span.brand_text 任意
         .item_brand_form
-          = f.text_field :brand, placeholder: "例  GUCCI", class: "name_field"
+          = f.text_field :brand_id, placeholder: "例  GUCCI", class: "name_field"
       .item_status
         .text
           %p 商品の状態
@@ -53,7 +53,7 @@
             %p 配送料の負担
             %span 必須
           .item_delevery_burden_input
-            =f.collection_select :delivery_charge,Deliverychage.all,:id,:name,{include_blank: "選択してください"}, class: "input-select"
+            =f.collection_select :delivery_charge,Deliverycharge.all,:id,:name,{include_blank: "選択してください"}, class: "input-select"
         .item_delivery_area
           .text
             %p 発送元の地域
