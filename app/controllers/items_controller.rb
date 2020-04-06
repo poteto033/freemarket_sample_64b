@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   def new
    @item = Item.new
    @item.images.build
+   @images = @item.images.build
    @category_parent = ["---"]
    @category_parent=Category.where(ancestry: nil).each do |parent|
     @category_parent<<parent.name
@@ -24,12 +25,10 @@ class ItemsController < ApplicationController
   def create
     @item=Item.new(item_params)
     if @item.save
-  
-
-      redirect_to root_path , alert: '出品しました'
+      redirect_to root_path ,  notice: '商品を出品しました'
     else
   
-      render :new ,alert: '出品できませんでした'
+      render :new, notice: '出品できませんでした'  
     end
   end
 
