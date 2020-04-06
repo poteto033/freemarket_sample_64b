@@ -120,6 +120,12 @@
           margin: 0;
         }
       }
+      p.error-message-prace{
+        padding-top: 25px;
+        text-align: left;
+        clear:both;
+        color: red;
+      }
     }
     .item_price_fee {
       display: flex;
@@ -236,6 +242,9 @@
     border: 2px solid #ddd;
     height: 200px;
     }
+  }
+  p.error-message{
+    color:red;
   }
   .footer_item{
     height: 80px;
