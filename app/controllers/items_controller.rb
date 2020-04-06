@@ -24,6 +24,11 @@ class ItemsController < ApplicationController
 
   def create
     @item=Item.new(item_params)
+    @category_parent = ["---"]
+    @category_parent=Category.where(ancestry: nil).each do |parent|
+     @category_parent<<parent.name
+    end
+ 
     if @item.save
       redirect_to root_path ,  notice: '商品を出品しました'
     else
