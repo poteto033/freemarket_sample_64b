@@ -76,7 +76,7 @@ $(function(){
             createGrandchildrenBox(addHTML);
           })
           .fail(function(){
-            alert('孫カテゴリー取得に失敗しました');
+            alert('カテゴリー取得に失敗しました');
           })
       }else{
         $('#grandchildren-form').remove();

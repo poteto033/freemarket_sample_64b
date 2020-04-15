@@ -30,9 +30,9 @@ class ItemsController < ApplicationController
     end
  
     if @item.save
-      redirect_to root_path ,  notice: '商品を出品しました'
+      redirect_to root_path, alert: '出品しました'
     else
-      render :new
+      render :new , alert: '出品できませんでした'
     end
   end
 
