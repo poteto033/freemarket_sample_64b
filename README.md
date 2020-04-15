@@ -33,6 +33,7 @@
 ### Association
 - has_many :items
 - has_one :credit_card
+- has_one :address
 - has_many :buy_items, class_name: "Item", foreign_key: "buyer_id"
 - has_many :seling_items, ->{where(buyer_id is NULL)}, class_name: "Item", foreign_key: "solder_id"
 - has_many :sold_items, ->{where(buyer_id is not NULL)}, class_name: "Item",foreign_key: "solder_id"
@@ -40,17 +41,13 @@
 ### adressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
+|user_id|references|null: false, foreign_key:true|
 |postcode|integer|null:false|
 |prefecture|string|null:false|
 |city|string|null:false|
 |block|string|null:false|
 |building|string|null:false|
-|phone_number|integer|
-|user|references|null:false, foreign_key:true|
+|phone_number|string|
 ### Association
 - belongs_to :user
 
