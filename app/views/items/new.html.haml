@@ -40,8 +40,8 @@
           %span 必須 
         .item_category_form
           = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
-        -if @item.errors[:category].any?
-          %p.error-message 選択してください       
+      -if @item.errors[:category].any?
+        %p.error-message-category 選択してください       
       .item_brand
         .text
           %p ブランド
@@ -95,7 +95,7 @@
             ¥
           = f.number_field :price, placeholder: "0", class: "input-form_price",id: "price-form", onKeyUp: "myFunc()"
         -if @item.errors[:price].any?
-          %p.error-message-prace 半角数字で300以上999999以内で入力してください      
+          %p.error-message-price 半角数字で300以上999999以内で入力してください      
       .item_price_fee
         %p
           販売手数料(3%)
