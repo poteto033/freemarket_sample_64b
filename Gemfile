@@ -75,7 +75,8 @@ gem 'fog-aws'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'carrierwave'
 gem 'mini_magick'
-
 gem  'ancestry'
 gem 'active_hash'
-gem 'pry-byebug'
+
+# pay.jpの導入
+gem 'payjp'
