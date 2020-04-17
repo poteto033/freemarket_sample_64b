@@ -1,6 +1,7 @@
+
 .wapper  
   .header_item
-    .hurima_logo
+    = render "devise/shared/header"
   .body_item
     =form_for @item do |f|
       .item_image
@@ -17,8 +18,10 @@
                   %br
                     またはクリックしてファイルをダウンロード
                 =i.file_field :image, class: 'file'
+　
         - if @item.errors[:images].any?
           %p.error-message 画像がありません
+        .input_item_image-new
       .item_name
         .text
           %p 商品名
@@ -39,9 +42,16 @@
           %p カテゴリー
           %span 必須 
         .item_category_form
+        
           = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
+<<<<<<< HEAD
+      -if @item.errors[:category].any?
+        %p.error-message-category 選択してください       
+
+=======
         -if @item.errors[:category].any?
           %p.error-message 選択してください       
+>>>>>>> parent of 41e24a1... エラーハンドリングのveiw修正
       .item_brand
         .text
           %p ブランド
@@ -53,9 +63,11 @@
           %p 商品の状態
           %span 必須
         .item_status_form
+
           = f.collection_select :item_status, Itemstatus.all,:id,:name,{include_blank: "選択してください"},class: "input-select"
         -if @item.errors[:item_status].any?
           %p.error-message 選択してください
+
       .item_delivery
         %p.text1 配送について
         .item_delivery_burden
@@ -63,26 +75,32 @@
             %p 配送料の負担
             %span 必須
           .item_delevery_burden_input
+
             =f.collection_select :delivery_charge,Deliverycharge.all,:id,:name,{include_blank: "選択してください"}, class: "input-select"
           -if @item.errors[:delivery_charge].any?
             %p.error-message 選択してください       
+
         .item_delivery_area
           .text
             %p 発送元の地域
             %span 必須
           .item_delevery_area_input
+
             = f.collection_select :delivery_area, Prefecture.all,:id,:name,{include_blank: "選択してください"}, class: "input-select"
           -if @item.errors[:delivery_area].any?
             %p.error-message 選択してください       
+
         .item_delevery_day
           .text
             %p 発送までの日数
             %span
               必須
         .item_delevery_day_input
+
           = f.collection_select :delivery_days,Deliverydays.all , :id,:name,{include_blank: "選択してください"}, class: "input-select"
         -if @item.errors[:delivery_days].any?
           %p.error-message 選択してください       
+
       .item_price
         %p.text1
           価格（¥300〜9,999,999）
@@ -105,6 +123,8 @@
           =f.submit "出品する", class: "listing_button"
           =link_to "戻る","#"
   .footer_item
+    = render "devise/shared/footer"
+
  
 
 
