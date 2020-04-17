@@ -41,15 +41,14 @@
         .item_category_form
 <<<<<<< HEAD
 <<<<<<< HEAD
-        
-          = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
 <<<<<<< HEAD
-      -if @item.errors[:category].any?
-        %p.error-message-category 選択してください       
-
+        
 =======
+>>>>>>> parent of 1edfe0f... a
+          = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
         -if @item.errors[:category].any?
           %p.error-message 選択してください       
+<<<<<<< HEAD
 >>>>>>> parent of 41e24a1... エラーハンドリングのveiw修正
 =======
 　
@@ -63,6 +62,8 @@
       -if @item.errors[:category].any?
         %p.error-message-category 選択してください       
 >>>>>>> parent of 9ddfac9... Merge branch 'master' into 出品機能実装　
+=======
+>>>>>>> parent of 1edfe0f... a
       .item_brand
         .text
           %p ブランド
