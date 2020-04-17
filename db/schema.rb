@@ -10,35 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20200404133122) do
-
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postcode"
-    t.string   "prefecture"
-    t.string   "city"
-    t.string   "block"
-    t.string   "building"
-    t.string   "phone_number"
-    t.integer  "user_id",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
-  end
-
+ActiveRecord::Schema.define(version: 20200317060731) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",     null: false
-    t.string   "customer_id", null: false
-    t.string   "card_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,18 +42,14 @@ ActiveRecord::Schema.define(version: 20200404133122) do
     t.string   "delivery_charge",               null: false
     t.integer  "delivery_area",                 null: false
     t.string   "delivery_days",                 null: false
-
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.integer  "category_id"
+    t.integer  "category_id",                   null: false
     t.integer  "brand_id"
     t.integer  "solder_id"
     t.integer  "buyer_id"
-
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
-    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["solder_id"], name: "index_items_on_solder_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -97,10 +70,5 @@ ActiveRecord::Schema.define(version: 20200404133122) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "users", column: "buyer_id"
-  add_foreign_key "items", "users", column: "solder_id"
 end
