@@ -85,10 +85,6 @@
           .items__list1__category__images 
             -item.images.each do |image|
               =image_tag item.images, alt: "" 
-            -if item.buyer.present?
-              .sold-item 
-              %p
-                SOLD
           .items__list1__category--data1
             .items__list1__category--data1__name
               %p 
@@ -115,17 +111,13 @@
         .items__list1__category__images 
           -item.images.each do |image|
             =image_tag item.images, alt: ""
-          -if item.buyer.present?
-            .sold-item 
-            %p
-              SOLD
         .items__list2__brand--data2
           .items__list2__brand--data2__name
             %p 
               =item.name
           .items__list2__brand--data2__content
             %li.items__list2__brand--data2__content--price
-              =item.price 
+              3000
             %li.items__list2__brand--data2__content--star
               %i.fas.fa-star
               %p.items__list2__brand--data2__content--count
@@ -133,3 +125,5 @@
           .items__list2__brand--data1__tax
             %p
               (税込)
+      
+        

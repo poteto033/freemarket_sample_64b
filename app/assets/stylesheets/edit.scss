@@ -5,13 +5,13 @@
     display:table;
     text-align: center;
     width: 100vw;
-    padding-bottom:25px;
+    padding-bottom:40px;
     a{
       display:block;
       margin: 40px 0 0;
 
       img{
-        // line-height: 49px;
+        line-height: 49px;
         height: 49px;
       }
     }
@@ -188,12 +188,12 @@
 
 .sub-footer{
   width: 100vw;
-  background-color: #d3d3d3;
+  background-color: #F5F5F5;
   bottom: 0;
   margin: 0 auto;
   &__box{
     width: 456px;
-    height: auto;
+    height: 220px;
     margin: 0 auto;
     padding-top: 10px;
     
@@ -211,6 +211,7 @@
     white-space: nowrap;
     text-align: center;
     &__kiyaku{
+      padding-left: 40px;
     }
   }
   
@@ -219,16 +220,11 @@
     height: auto;
     padding-top: 10px;
     margin: 0 auto;
-    color: black;
-    margin: 10px, 0;
-
   }
     &__bottom{
       height: 65px;
       font-size: 18px;
       text-align: center;
-      margin: 10px, 0;
-
     }
   }
 }
