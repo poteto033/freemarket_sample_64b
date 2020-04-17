@@ -5,10 +5,13 @@
     height: 100px;
     width: auto;
     text-align:center;
-    .app_logo{
-      width: 160px;
-      margin-top: 30px;
-    }
+  }
+  .hurima_logo{
+    background:url(material/logo/logo-white.png);
+    background-position: center;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    height: 100%
   }
   .body_item{
     height: 100%;
@@ -59,7 +62,11 @@
       margin-bottom: 40px;
     }
     .item_category {
+      margin-bottom: 5px;
+    }
+    p.error-message-category{
       margin-bottom: 40px;
+      color: red;
     }
     .item_brand {
       margin-bottom: 40px;
@@ -116,6 +123,12 @@
           -webkit-appearance: none;
           margin: 0;
         }
+      }
+      p.error-message-price{
+        padding-top: 25px;
+        text-align: left;
+        clear:both;
+        color: red;
       }
     }
     .item_price_fee {
@@ -226,40 +239,18 @@
       background-color: green;
     }
    }
-  }
-
-    .footer {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      .links{
-        margin: 0 auto;
-        margin-top: 20px;    
-        ul {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 20px;
-          .footer_li {
-            margin: 0 20px;
-            text-decoration: none;
-            color: #2e2e2e;
-            font-size: 0.7rem;
-          }
-          .footer_li:hover {
-            text-decoration:underline;
-            color: #707070;
-          } 
-        }
-      }
-      .app_logo {
-        width: 160px;
-        margin-top: 30px;
-      }
-      h3 {
-        font-size: 0.8rem;
-        margin-bottom: 50px;
-        color: #2e2e2e;
-      }
+  img{
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    height: 200px;
     }
-  
+  }
+  p.error-message{
+    color:red;
+  }
+  .footer_item{
+    height: 80px;
+  }
 }
