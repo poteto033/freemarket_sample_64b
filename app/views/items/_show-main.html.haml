@@ -3,11 +3,11 @@
     .main-content
       .item-information
         .item-information__name
-          商品名
+          =@item.name
         .item-information__images
           %ul
             %li
-              =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
+              =image_tag("#{@image.image}",size: '300x300')
               %ul
                 %li
                   =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
@@ -16,46 +16,51 @@
                 %li
                   =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/9/a003.png")
         .item-information__price
-          %span ¥10000
+          %span 
+            =@item.price
           .item-information__price__detail
             %span （税込）
-            %span 送料込み
+            %span 
+              =@delivery_charge.name
         .item-information__text
-          親譲りの無鉄砲で小供の時から損ばかりしている。
-          小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
-          なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。
-          弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+          =@item.text
         .item-information__table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td hoge
+                %td
+                  =@solder.nickname
               %tr
                 %th カテゴリー
                 %td
-                  =link_to "親要素","#"
-                  =link_to "子要素","#"
-                  =link_to "孫要素","#"
+                  =link_to "#{@parent_category.name}","#"
+                  =link_to "#{@child_category.name}","#"
+                  =link_to "#{@grandchild_category.name}","#"
               %tr
                 %th ブランド
                 %td
+                  =@item.brand
               %tr
                 %th 商品のサイズ
                 %td
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td 
+                  =@item_status.name
+                  
               %tr
                 %th 発送元の地域
                 %td
-                  =link_to "青森県","#"
+                  =@delivery_area.name
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  =@delivery_charge.name
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td
+                  =@delivery_days.name
         .item-information__option-area
           .item-information__option-area__like
             .item-information__option-area__like__btn
