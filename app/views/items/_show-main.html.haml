@@ -7,7 +7,7 @@
         .item-information__images
           %ul
             %li
-              =image_tag("#{@image.image}",size: '300x300')
+              =image_tag @image.image
               %ul
                 %li
                   =image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png")
@@ -22,6 +22,9 @@
             %span （税込）
             %span 
               =@delivery_charge.name
+          = link_to "#",class:"item-information__btn" do
+            %span 商品情報を編集する
+
         .item-information__text
           =@item.text
         .item-information__table
