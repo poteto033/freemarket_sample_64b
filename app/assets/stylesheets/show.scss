@@ -75,21 +75,6 @@
             }
           }         
         }
-        &__btn{
-          display: block;
-          background-color: red;
-          text-align: center;
-          text-decoration: none;
-          margin: 20px 0 10px 0;
-
-          span{
-            line-height: 60px;
-            font-size: 24px;
-            font-weight: 600;
-            color:white;
-          }
-        }
-
         &__text{
           font-size: 18px;
           margin-bottom: 30px; 
@@ -162,6 +147,42 @@
             }
           }
         }
+      }
+
+      .item-btn-box{
+        background-color: #fff;
+        margin: 20px 0 20px 0;
+        .item-btn{
+          display: block;
+          padding: 20px;
+
+          text-align: center;
+          line-height: 50px;
+
+          &__edit{
+          background-color: red;
+          }
+          &__destroy{
+          background-color: gray;
+
+          }
+          &__purchase{
+
+            background-color: red;
+
+          }
+          a{
+            font-weight: 600;
+            display:block;
+            text-decoration: none;
+            color: #fff;
+
+
+          }
+        }
+
+        
+
       }
       .comment-box{
         width: 100%;
