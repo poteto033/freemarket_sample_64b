@@ -69,13 +69,13 @@
       .item-btn-box
         .item-btn
           -if user_signed_in? && current_user.id == @solder.id    
-            = link_to "#",class:"item-btn__edit" do
+            = link_to edit_item_path(@item),class:"item-btn__edit" do
               %span 商品の編集
             %span or
-            = link_to "#",class:"item-btn__destroy" do
+            = link_to item_path(@item),method: :delete,class:"item-btn__destroy" do
               %span この商品を削除する
           -else
-            = link_to "#",class:"item-btn__purchase" do
+            = link_to purchase_item_path(@item),class:"item-btn__purchase" do
               %span 購入画面に進む
 
       .comment-box
