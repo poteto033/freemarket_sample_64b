@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
   def show
     @item=Item.find(params[:id])
     @image = @item.images.first
+    @images = @item.images.all
     @solder=User.find(@item[:solder_id])
     @grandchild_category = Category.find(@item[:category_id])
     @child_category = @grandchild_category.parent
