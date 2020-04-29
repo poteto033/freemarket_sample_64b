@@ -12,3 +12,25 @@ function myFunc() {
   }
   document.getElementById("item_price_number").innerHTML = input_number;
 };
+
+$(function(){
+  $('.file').change(function(){
+    var file = $('input[type="file"]').prop('files')[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      var src = fileReader.result
+      var html= `
+      <div>
+        <img src="${src}">
+        <div class="destroy">
+          <button type="button">
+            削除
+          </button>
+        </div>
+      </div>
+      `
+      $('.image_box').append(html);
+    }
+    fileReader.readAsDataURL(file);
+  });
+});
