@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
+
   def index
    @items = Item.includes(:images).order('created_at DESC')
   end
@@ -55,6 +57,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    if user_signed_in? && @item.soder_id == current_user.id
+      if @item.destroy
+        redirect_to root_path
+      else
+        redirect_to t_path
+      end
+    else
+      redirect_to root_path
+    end
     
   end
 
@@ -67,5 +78,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name,:text,:item_status,:price,:delivery_area,:delivery_charge,:delivery_days,:brand,:category_id,images_attributes: [:image])
     .merge(solder_id: current_user.id)
   end
+
+  def set_item
+    @item=Item.find(params[:id])
 end
 
