@@ -89,4 +89,8 @@ ActiveRecord::Schema.define(version: 20200316092427) do
 >>>>>>> upstream/master
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
+<<<<<<< HEAD
+=======
+  add_foreign_key "items", "categories"
+>>>>>>> upstream/master
 end

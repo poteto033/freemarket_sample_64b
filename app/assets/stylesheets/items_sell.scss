@@ -177,6 +177,10 @@
         }
       }
     }
+
+    p.error-message{
+      color:red;
+    }
     
     select::-ms-expand {
       display: none;

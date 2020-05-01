@@ -10,11 +10,6 @@ Rails.application.routes.draw do
       get 'items/category_grandchildren',defaults:{format:'json'}
     end
   end
-<<<<<<< HEAD
-  resources :images, only: [:index]
-  resources :users, only: [:new]
-end
-=======
   resources :items, only: [:show , :edit, :new] do
     member do
       get 'buy_confirmation'
@@ -32,4 +27,3 @@ end
     end
   end
 end
->>>>>>> upstream/master
