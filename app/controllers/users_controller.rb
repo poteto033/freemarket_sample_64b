@@ -7,5 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    user = User.find(params[:id])
+    @email = user.email
+    @items = user.items
   end
 end

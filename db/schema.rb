@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(version: 20200316092427) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
+>>>>>>> upstream/master
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.string   "ancestry"
@@ -70,6 +82,11 @@ ActiveRecord::Schema.define(version: 20200316092427) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+<<<<<<< HEAD
+=======
+  add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
+>>>>>>> upstream/master
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
 end
