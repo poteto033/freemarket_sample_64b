@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
   root "items#index"
-  resources :items, only: [:index, :show , :edit, :new, :create] do
+  resources :items, only: [:index, :show , :edit, :new, :create, :update] do
     collection do
       get 'category_children',defaults:{format:'json'}
       get 'category_grandchildren',defaults:{format:'json'}
@@ -17,7 +17,8 @@ Rails.application.routes.draw do
       get 'buy_complete'
     end
 end
-  resources :images, only: [:index]
+
+  #resources :images, only: [:index]
   resources :users, only: [:new, :show]
   resources :addresses, only: [:new, :create, :edit, :update]
   resources :cards, only: [:new, :show]do

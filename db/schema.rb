@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20200316092427) do
+=======
+ActiveRecord::Schema.define(version: 20200404130015) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "postcode"
+    t.string   "prefecture"
+    t.string   "city"
+    t.string   "block"
+    t.string   "building"
+    t.string   "phone_number"
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
+>>>>>>> upstream/master
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -54,14 +71,21 @@ ActiveRecord::Schema.define(version: 20200316092427) do
     t.string   "delivery_charge",               null: false
     t.integer  "delivery_area",                 null: false
     t.string   "delivery_days",                 null: false
+<<<<<<< HEAD
     t.integer  "category_id",                   null: false
     t.integer  "brand_id"
+=======
+    t.string   "brand"
+>>>>>>> upstream/master
     t.integer  "solder_id"
     t.integer  "buyer_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+<<<<<<< HEAD
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+=======
+>>>>>>> upstream/master
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -88,9 +112,12 @@ ActiveRecord::Schema.define(version: 20200316092427) do
   add_foreign_key "cards", "users"
 >>>>>>> upstream/master
   add_foreign_key "images", "items"
+<<<<<<< HEAD
   add_foreign_key "items", "brands"
 <<<<<<< HEAD
 =======
   add_foreign_key "items", "categories"
+>>>>>>> upstream/master
+=======
 >>>>>>> upstream/master
 end

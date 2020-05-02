@@ -81,9 +81,6 @@ $(function(){
       }else{
         $('#grandchildren-form').remove();
       }
-    
     });
-
-
 });
 

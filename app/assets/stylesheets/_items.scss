@@ -330,9 +330,8 @@ html,body {
         &__images {
           @include size(70%, 100%, 0);
           img {
-            background-size: cover;
-            object-fit: contain;
-            object-position: center;
+            @include size(100%, 100%, 0);
+            object-fit: cover;
           }
           
         }

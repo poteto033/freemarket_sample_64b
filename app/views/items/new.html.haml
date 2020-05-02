@@ -106,6 +106,7 @@
         .submit-btn
           =f.submit "出品する", class: "listing_button"
           =link_to "戻る","#"
+<<<<<<< HEAD
   .send_footer
     .links
       %ul
@@ -119,6 +120,23 @@
       = link_to root_path do
         = image_tag "logo-white.png",class:"app_logo"
     %h3 © FURIMA
+=======
+  .footer_item
+    .send_footer
+      .links
+        %ul
+          %li
+            = link_to "プライバシーポリシー","#",class: "footer_li"
+          %li
+            = link_to "FURIMA利用規約","#",class: "footer_li"
+          %li
+            = link_to "特定商取引に関する表記","#",class: "footer_li"
+      .footer__logo
+        = link_to root_path do
+          = image_tag "logo-white.png",class:"app_logo"
+      %h3 © FURIMA
+
+>>>>>>> upstream/master
  
 
 

@@ -69,11 +69,15 @@ gem 'sass-rails', '~> 5.0'
 # deviseの導入
 gem 'devise'
 gem 'font-awesome-sass'
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 gem 'fog-aws'
 
 # reCaptchaの導入
 gem 'recaptcha', require: "recaptcha/rails"
-gem 'carrierwave'
+gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem  'ancestry'
 gem 'active_hash'
