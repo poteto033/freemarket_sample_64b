@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item_information,only:[:show,:destroy,:edit]
+  before_action :set_item_information,only:[:show,:destroy,:edit,:update]
   require "payjp"
   before_action :set_card, only:[:buy_confirmation, :payment, :buy_complete]
   before_action :set_pay_jp_api_key, only: [:payment]
@@ -11,17 +11,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-
     @category_parent= Category.where(ancestry: nil)
-  end
-
-
-  def category_children
-    @category_children = Category.find(params[:parent_name]).children
-  end
-
-  def category_grandchildren
-    @category_grandchildren = Category.find(params[:child_name]).children
   end
 
 
@@ -39,9 +29,13 @@ class ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to root_path(item.id)
-  
+    @category_parent= Category.where(ancestry: nil)
+
+    if item.update(item_params)
+      redirect_to root_path(item.id)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -49,13 +43,12 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.includes(:images).find(params[:id])
-    @category_parent = ["---"]
     @category_parent= Category.where(ancestry: nil).each do |parent|
-      @category_parent<<parent.name
     end
   end
 
   def destroy
+
     if @item.solder_id == current_user.id
       @item.destroy
     end
@@ -105,6 +98,17 @@ class ItemsController < ApplicationController
 
   def buy_complete
   end
+  
+
+  def category_children
+    @category_children = Category.find(params[:parent_name]).children
+  end
+
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:child_name]).children
+  end
+
+
 
 
   private

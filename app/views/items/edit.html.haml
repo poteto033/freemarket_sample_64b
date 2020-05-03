@@ -44,7 +44,7 @@
           %span 必須 
         .item_category_form
           = f.collection_select :category_id, @category_parent,:id,:name,{include_blank: "選択してください"},{class: "input-select",id: "parent-form"}
-      -if @item.errors[:category].any?
+      -if @item.errors[:category_id].any?
         %p.error-message-category 選択してください       
       .item_brand
         .text
