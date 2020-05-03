@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item_information,only:[:show,:destroy]
+  before_action :set_item_information,only:[:show,:destroy,:edit]
   require "payjp"
   before_action :set_card, only:[:buy_confirmation, :payment, :buy_complete]
   before_action :set_pay_jp_api_key, only: [:payment]
@@ -11,11 +11,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    @category_parent = ["---"]
-    @category_parent= Category.where(ancestry: nil).each do |parent|
-    @category_parent<<parent.name
-    end
+
+    @category_parent= Category.where(ancestry: nil)
   end
+
 
   def category_children
     @category_children = Category.find(params[:parent_name]).children
@@ -25,22 +24,22 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_name]).children
   end
 
+
+
+
   def create
     @item=Item.new(item_params)
-    @category_parent = ["---"]
-    @category_parent= Category.where(ancestry: nil).each do |parent|
-    @category_parent<<parent.name
-    end
+    @category_parent= Category.where(ancestry: nil)
     if @item.save
       redirect_to root_path , alert: '出品しました'
     else
-      render :new 
+      render :new
     end
   end
 
   def update
     item = Item.find(params[:id])
-    item.update!(item_params)
+    item.update(item_params)
     redirect_to root_path(item.id)
   
   end
