@@ -19,8 +19,8 @@ html,body {
 .signup {
   @include size(450px, 500px, 0);
   @include color(#dddddd, 0);
-  margin-left: 700px;
   text-align: center;
+  margin: auto;
   .signup-content {
     line-height: 60px;
     font-size: 1.4rem;
@@ -107,15 +107,3 @@ html,body {
     }
   }
 }
-
-
-// %label 登録クレジットカード情報
-// %br
-// = "**** **** **** " + @card_information.last4
-// %br
-// - exp_month = @card_information.exp_month.to_s
-// - exp_year = @card_information.exp_year.to_s.slice(2,3)
-// = exp_month + " / " + exp_year
-// = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-//   %input{ type: "hidden", name: "card_id", value: "" }
-//   %button 削除する

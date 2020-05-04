@@ -16,7 +16,7 @@
                 %p 
                   ドラッグアンドドロップ
                   %br
-                    またはクリックしてファイルをダウンロード
+                    またはクリックしてファイルをアップロード
                 =i.file_field :image, class: 'file'
           - if @item.errors[:images].any?
             %p.error-message 画像がありません
@@ -49,7 +49,7 @@
           %p ブランド
           %span.brand_text 任意
         .item_brand_form
-          = f.text_field :brand_id, placeholder: "例  GUCCI", class: "name_field"
+          = f.text_field :brand, placeholder: "例  GUCCI", class: "name_field"
       .item_status
         .text
           %p 商品の状態
@@ -95,7 +95,7 @@
         .item_price_number
           %p
             ¥
-          = f.number_field :price, placeholder: "0", class: "input-form_price",id: "price-form", onKeyUp: "myFunc()"
+          = f.number_field :price, placeholder: "0", class: "input-form_price",id: "price-form"
         -if @item.errors[:price].any?
           %p.error-message-price 半角数字で300以上999999以内で入力してください
       .item_price_fee
@@ -106,7 +106,6 @@
         .submit-btn
           =f.submit "出品する", class: "listing_button"
           =link_to "戻る","#"
-<<<<<<< HEAD
   .send_footer
     .links
       %ul
@@ -120,8 +119,7 @@
       = link_to root_path do
         = image_tag "logo-white.png",class:"app_logo"
     %h3 © FURIMA
-=======
-  .footer_item
+  .footer_item 
     .send_footer
       .links
         %ul
@@ -135,16 +133,3 @@
         = link_to root_path do
           = image_tag "logo-white.png",class:"app_logo"
       %h3 © FURIMA
-
->>>>>>> upstream/master
- 
-
-
-    
-
-
-
-    
-
-
-

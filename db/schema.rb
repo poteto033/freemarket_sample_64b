@@ -11,9 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20200316092427) do
 =======
 ActiveRecord::Schema.define(version: 20200404130015) do
+=======
+ActiveRecord::Schema.define(version: 20200324025657) do
+>>>>>>> upstream/master
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postcode"
@@ -72,9 +76,13 @@ ActiveRecord::Schema.define(version: 20200404130015) do
     t.integer  "delivery_area",                 null: false
     t.string   "delivery_days",                 null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.integer  "category_id",                   null: false
     t.integer  "brand_id"
 =======
+=======
+    t.integer  "category_id",                   null: false
+>>>>>>> upstream/master
     t.string   "brand"
 >>>>>>> upstream/master
     t.integer  "solder_id"
@@ -82,9 +90,13 @@ ActiveRecord::Schema.define(version: 20200404130015) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
 =======
+>>>>>>> upstream/master
+=======
+    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
 >>>>>>> upstream/master
   end
 

@@ -1,88 +1,3 @@
-<<<<<<< HEAD
-.main 
-  .purchase
-    %p.purchase__subheader
-      = link_to root_path  do
-        =image_tag "logo.png", width: '100px',height:'auto'
-    .purchase__inner
-      .purchase__inner__main
-        %h1.purchase__inner__main__confirmation
-          購入内容の確認
-        .purchase__inner__main__item 
-          = link_to "item image","#", class: 'purchase__inner__main__item__image'
-          %ul.purchase__inner__main__item__description
-            %li.purchase__inner__main__item__description__name
-              江戸小紋 正絹 袷 作家物 落款 証紙付 紫色 着物
-            %li
-              %ul.purchase__inner__main__item__description__money
-                %li.purchase__inner__main__item__description__money__money
-                  ¥19,800 （税込）
-                %li.purchase__inner__main__item__description__money__text 
-                  送料込み
-        .purchase__inner__main__form
-          .purchase__inner__main__form__cost
-            %ul.purchase__inner__main__form__cost__box
-              %li.purchase__inner__main__form__cost__box__head
-                支払い金額
-              %li.purchase__inner__main__form__cost__box__amount
-                ¥19,800
-            %label.purchase__inner__main__form__cost__usepoint
-              = check_box :point, class: 'purchase__inner__main__form__cost__usepoint__button' 
-              .purchase__inner__main__form__cost__usepoint__text ポイントを使用 (所持ポイント: P888)
-
-          .purchase__inner__main__form__payment
-            %ul
-              %li.residence-title 支払い方法
-              %li.register-button
-                = icon("fas", "plus-circle")
-                = link_to link_to "クレジットカード登録ページ","#" do
-                  登録してください
-              
-          .purchase__inner__main__form__shipping
-            %ul.data-exists__header
-              %li.residence-title 配送先
-              %li.data-exists__header__modify
-                = link_to link_to "user_address","#" do
-                  変更する
-            %ul.residence-data
-              %li 〒111-8888
-              %li
-                %ul.residence-data__address
-                  %li.residence-data__address__item
-                    東京都
-                  %li.residence-data__address__item
-                    渋谷区
-                  %li.residence-data__address__item
-                    神南坂
-                  %li.residence-data__address__item
-                    フレーム
-              %li
-                %ul.residence-data__name
-                  %li.residence-data__name__item
-                    山田
-                  %li.residence-data__name__item
-                    太郎
-
-          .purchase__inner__main__form__buy
-            = submit_tag '購入する', class: 'purchase__inner__main__form__buy__button'
-    .sub-footer
-      .sub-footer__box
-        %ul.sub-footer__box__menu
-          %li.sub-footer__box__menu__privacy
-            = link_to "#" do
-              プライバシーポリシー
-          %li.sub-footer__box__menu__kiyaku
-            = link_to "#" do
-              メルカリ利用規約
-          %li.sub-footer__box__menu__torihiki
-            = link_to "#" do
-              特定商取引に関する表記
-        = link_to root_path do
-          %p.sub-footer__box__image
-            = image_tag "logo-white.png", width: '100px', height: "auto"
-        .sub-footer__box__bottom
-          = "© Furima, Inc."
-=======
 .wapper  
   .header_item
     = render "devise/shared/header"
@@ -103,7 +18,7 @@
                 %p 
                   ドラッグアンドドロップ
                   %br
-                    またはクリックしてファイルをダウンロード
+                    またはクリックしてファイルをアップロード
                 =i.file_field :image, class: 'file'
           - if @item.errors[:images].any?
             %p.error-message 画像がありません
@@ -136,7 +51,7 @@
           %p ブランド
           %span.brand_text 任意
         .item_brand_form
-          = f.text_field :brand_id, placeholder: "例  GUCCI", class: "name_field"
+          = f.text_field :brand, placeholder: "例  GUCCI", class: "name_field"
       .item_status
         .text
           %p 商品の状態
@@ -182,7 +97,7 @@
         .item_price_number
           %p
             ¥
-          = f.number_field :price, placeholder: "0", class: "input-form_price",id: "price-form", onKeyUp: "myFunc()"
+          = f.number_field :price, placeholder: "0", class: "input-form_price",id: "price-form"
         -if @item.errors[:price].any?
           %p.error-message-price 半角数字で300以上999999以内で入力してください
       .item_price_fee
@@ -209,4 +124,3 @@
       %h3 © FURIMA
 
  
->>>>>>> upstream/master
