@@ -17,7 +17,7 @@ html,body {
 }
 
 .user-main {
-  @include size(150px , 70%, 0);
+  @include size(150px , 60%, 0);
   background: linear-gradient(#DBFF71, #05FBFF,);
   position: relative;
   margin: auto;
@@ -45,7 +45,7 @@ html,body {
 }
 
 .user-main__content {
-  @include size(400px, 70%, 0);
+  @include size(400px, 60%, 0);
   font-size: 1.4rem;
   top: 50px;
   margin: auto;
