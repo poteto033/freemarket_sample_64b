@@ -10,7 +10,7 @@
           %h2
             郵便番号
             %span 必須
-          = f.text_field :postcode, class: 'input_box', placeholder: '例)1234567', autofocus: true
+          = f.text_field :postcode, class: 'input_box', placeholder: '例)1234567(ハイフンなし)', autofocus: true
           - if @address.errors[:postcode].any?
             %p.red ハイフンなしの半角７桁で入力してください
         .group
