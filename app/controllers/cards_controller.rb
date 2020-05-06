@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
   require "payjp"
   before_action :set_card
+  before_action :set_category_pull
 
   def new
     redirect_to "/cards/#{current_user.id}" if @card.present?
@@ -62,5 +63,9 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.where(user: current_user).first if Card.where(user: current_user).present?
+  end
+
+  def set_category_pull
+    @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
   end
 end
