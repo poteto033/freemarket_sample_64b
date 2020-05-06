@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Card do
   describe '#pay' do
     it 'is valid' do
-      user = build(:user)
+      user = create(:user)
       card = build(:card, user_id: user.id)
       card.valid?
       expect(card).to be_valid
