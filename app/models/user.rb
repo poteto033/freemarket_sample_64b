@@ -12,8 +12,8 @@ class User < ApplicationRecord
 
   VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
 
-  validates :last_name,           presence: true
-  validates :first_name,          presence: true
+  validates :last_name,           presence: true, format: { with: /^[ぁ-んァ-ン一-龥]/,multiline: true}
+  validates :first_name,          presence: true, format: { with: /^[ぁ-んァ-ン一-龥]/,multiline: true}
   validates :last_name_kana,      presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :first_name_kana,     presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :nickname,            presence: true

@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to root_path alert: '商品を削除しました'
+    redirect_to root_path,alert: '商品を削除しました'
   end
 
 

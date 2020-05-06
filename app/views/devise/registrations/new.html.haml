@@ -39,9 +39,9 @@
             = f.text_field :last_name, class: 'input_box-half', placeholder: '例)山田', autofocus: true
             = f.text_field :first_name, class: 'input_box-half', placeholder: '例)彩', autofocus: true
           - if resource.errors[:last_name].present?
-            %p.red 姓 を入力してください
+            %p.red 姓 を全角で入力してください
           - if resource.errors[:first_name].present?
-            %p.red 名 を入力してください
+            %p.red 名 を全角で入力してください
         .group
           %h2
             お名前カナ(全角)

@@ -11,21 +11,29 @@
             郵便番号
             %span 必須
           = f.text_field :postcode, class: 'input_box', placeholder: '例)1234567', autofocus: true
+          - if @address.errors[:postcode].any?
+            %p.red ハイフンなしの半角７桁で入力してください
         .group
           %h2
             都道府県
             %span 必須
           = f.select :prefecture, Prefecture.all.map { |pre| [pre.name, pre.id] },{include_blank: "--"}, class: 'input-box-select', autofocus: true, id: 'prefecture'
+          - if @address.errors[:prefecture].any?
+            %p.red 選択してください
         .group
           %h2
             市区町村
             %span 必須
           = f.text_field :city, class: 'input_box', placeholder: '例)横浜市緑区', autofocus: true
+          - if @address.errors[:city].any?
+            %p.red 選択してください         
         .group
           %h2
             番地
             %span 必須
           = f.text_field :block, class: 'input_box', placeholder: '例)青山1−1−1', autofocus: true
+          - if @address.errors[:block].any?
+            %p.red 選択してください
         .group
           %h2
             建物名
