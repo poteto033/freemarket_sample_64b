@@ -19,18 +19,33 @@ $(function(){
     fileReader.onloadend = function() {
       var src = fileReader.result
       var html= `
-      <div>
-        <img src="${src}">
-        <div class="destroy">
-          <button type="button">
-            削除
-          </button>
-        </div>
-      </div>
-      `
+                  <img class="img" src="${src}">
+                  <p>画像を変更する場合はブラウザでページを更新してください</p>
+                `
       $('.image_box').append(html);
+      $('.item_image_paragraph').hide();
     }
     fileReader.readAsDataURL(file);
+  });
+
+  $(function btn_change(){
+    $('.add_file').change(function(){
+      var file = $('input[type="file"]').prop('files')[0];
+      var fileReader = new FileReader();
+      fileReader.onloadend = function() {
+        var src = fileReader.result
+        var html= `
+                    <div class="image_box">
+                      <img class="img" src="${src}">
+                      <p>もう一度画像を変更する場合はブラウザでページを更新してください</p>
+                    </div>
+                  `
+        $('.img').remove();
+        $('.btn_change').remove();
+        $('.images_line').append(html);
+      }
+      fileReader.readAsDataURL(file);
+    });
   });
 });
 

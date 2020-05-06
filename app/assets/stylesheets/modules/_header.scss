@@ -75,7 +75,7 @@
           display: none;
           box-shadow: 1px 1px 3px 1px #999;
           position: absolute;
-          top: 40px;
+          top: 30px;
           z-index: 1;
           .parent_list {
             @include size(50px, 240px, 0 5px);
@@ -160,7 +160,7 @@
           display: none;
           box-shadow: 1px 1px 3px 1px #999;
           position: absolute;
-          top: 40px;
+          top: 30px;
           z-index: 1;
           .brand-menu_li {
             @include size(50px, 240px, 0 5px);

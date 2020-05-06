@@ -24,6 +24,7 @@ html,body {
   position: relative;
   .image1 {
     @include size(600px, 100%, 0);
+    position: relative;
     &--img {
       @include size(100%, 100%, 0);
       object-fit: cover;

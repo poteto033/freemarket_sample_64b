@@ -43,6 +43,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -69,10 +72,6 @@ gem 'sass-rails', '~> 5.0'
 # deviseの導入
 gem 'devise'
 gem 'font-awesome-sass'
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/master
 gem 'fog-aws'
 
 # reCaptchaの導入

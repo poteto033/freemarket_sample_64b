@@ -2,21 +2,22 @@
   .header_item
     .hurima_logo
   .body_item
+    .body_item-title
+      %p.title 出品する
     =form_for @item do |f|
       .item_image
         .text
           %p 出品画像
           %span 必須
-        .image_box
+        .images_line
+          .image_box
         .item_image_paragraph
           =f.fields_for :images do |i|
             = i.label :image, class: "image-file" do
               .file-btn
                 =icon("fas", "camera",class: "icon")
                 %p 
-                  ドラッグアンドドロップ
-                  %br
-                    またはクリックしてファイルをアップロード
+                  クリックしてファイルをアップロード
                 =i.file_field :image, class: 'file'
           - if @item.errors[:images].any?
             %p.error-message 画像がありません

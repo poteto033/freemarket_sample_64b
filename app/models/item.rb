@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   belongs_to :category
-  belongs_to :brand, optional: true
   belongs_to :solder, class_name: "User", optional: true
   belongs_to :buyer, class_name: "User", optional: true
   has_many :images,dependent: :destroy

@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   require "payjp"
   before_action :set_card, only:[:buy_confirmation, :payment, :buy_complete]
   before_action :set_pay_jp_api_key, only: [:payment]
+  before_action :set_category_pull
 
   def index
    @items = Item.includes(:images).order('created_at DESC').limit(3)
@@ -42,10 +43,19 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update!(item_params)
-    redirect_to root_path(item.id), alert: '商品情報を変更しました'
-  
+    @item = Item.find(params[:id])
+    @images = @item.images
+    begin
+      @item.update!(item_params)
+    rescue
+      @item = Item.find(params[:id])
+      @images = @item.images
+      @item.update(except_image)
+    end
+    if @images.length >= 2
+      @images.first.destroy
+    end
+    redirect_to item_path, alert: '商品情報を変更しました'
   end
 
   def show
@@ -53,10 +63,12 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.includes(:images).find(params[:id])
-    @category_parent = ["---"]
-    @category_parent= Category.where(ancestry: nil).each do |parent|
-      @category_parent<<parent.name
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
     end
+    @category_child_array = @item.category.parent.parent.children
+    @category_grandchild_array = @item.category.parent.children
   end
 
   def destroy
@@ -66,29 +78,33 @@ class ItemsController < ApplicationController
 
   def buy_confirmation
     @item = Item.find(params[:id])
-    @address = Address.find(current_user[:id])
-    @prefecture = Prefecture.find(@address[:prefecture])
-    if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @card_information = customer.cards.retrieve(@card.card_id)
-      @card_brand = @card_information.brand
-      case @card_brand
-      when "Visa"
-        @card_src = "visa.svg"
-      when "JCB"
-        @card_src = "jcb.svg"
-      when "MasterCard"
-        @card_src = "master-card.svg"
-      when "American Express"
-        @card_src = "american_express.svg"
-      when "Diners Club"
-        @card_src = "dinersclub.svg"
-      when "Discover"
-        @card_src = "discover.svg"
+    if Address.where(user: current_user).present?
+      @address = Address.where(user: current_user)
+      @prefecture = Prefecture.find(@current_user.address[:prefecture])
+      if @card.present?
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(@card.customer_id)
+        @card_information = customer.cards.retrieve(@card.card_id)
+        @card_brand = @card_information.brand
+        case @card_brand
+        when "Visa"
+          @card_src = "visa.svg"
+        when "JCB"
+          @card_src = "jcb.svg"
+        when "MasterCard"
+          @card_src = "master-card.svg"
+        when "American Express"
+          @card_src = "american_express.svg"
+        when "Diners Club"
+          @card_src = "dinersclub.svg"
+        when "Discover"
+          @card_src = "discover.svg"
+        end
+      else
+        redirect_to new_card_path,alert: 'カード情報を登録してください'
       end
     else
-      redirect_to new_card_path,alert: 'カード情報を登録してください'
+      redirect_to new_address_path,alert: '住所を登録してください'
     end
   end
 
@@ -110,8 +126,17 @@ class ItemsController < ApplicationController
 
 
   private
+
+  def set_category_pull
+    @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
+  end
+  
   def item_params
-    params.require(:item).permit(:name,:text,:item_status,:price,:delivery_area,:delivery_charge,:delivery_days,:brand_id,:category_id,images_attributes: [:image, :id]).merge(solder_id: current_user.id)
+    params.require(:item).permit(:name,:text,:item_status,:price,:delivery_area,:delivery_charge,:delivery_days,:brand,:category_id,images_attributes: [:image, :id]).merge(solder_id: current_user.id)
+  end
+
+  def except_image
+    params.require(:item).permit(:name,:text,:item_status,:price,:delivery_area,:delivery_charge,:delivery_days,:brand,:category_id).merge(solder_id: current_user.id)
   end
 
   def set_item_information
