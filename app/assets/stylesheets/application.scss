@@ -1,4 +1,5 @@
 @import './_reset.scss';
+@import "config/colors";
 @import './_clearfix.scss';
 @import './items_sell.scss';
 @import "font-awesome-sprockets";
@@ -15,3 +16,4 @@
 @import "cards_new";
 @import "cards_show";
 @import "buy_confirmation";
+@import "modules/flash";

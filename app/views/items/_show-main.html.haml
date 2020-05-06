@@ -13,7 +13,8 @@
             =@item.price
           .item-information__price__detail
             %span （税込）
-            %span 送料込み
+            %span
+              =@item.delivery_charge
         .item-information__text
           =@item.text
         .item-information__table
@@ -32,6 +33,7 @@
               %tr
                 %th ブランド
                 %td
+                  =@item.brand
               %tr
                 %th 商品のサイズ
                 %td

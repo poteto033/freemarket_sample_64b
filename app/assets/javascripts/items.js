@@ -1,5 +1,5 @@
 $(function(){
-
+  // 販売手数料
   $(function () {
     $('#item_price_number').text("ー");
     $('.input-form_price').keyup(function () {
@@ -11,7 +11,8 @@ $(function(){
       }
     });
   });
-
+  
+  //画面プレビュー
   $('.file').change(function(){
     var file = $('input[type="file"]').prop('files')[0];
     var fileReader = new FileReader();
