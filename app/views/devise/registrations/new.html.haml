@@ -29,6 +29,13 @@
           - if resource.errors[:password].present?
             %p.red パスワードを入力してください
           %p.gray ※英字と数字の両方を含めて設定してください
+        .group
+          %h2
+            パスワード(確認用)
+            %span 必須
+          = f.password_field :password_confirmation, class: 'input_box', placeholder: '確認用'
+          - if resource.errors[:password_confirmation].present?
+            %p.red パスワード(確認用)を入力してください
         %h1 本人確認
         %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .group
